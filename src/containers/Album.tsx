@@ -77,13 +77,20 @@ export const Album = observer(({ store }: { store: AppModel }) => {
         {store.album.loading ? (
           <span className="loader">Loading images..</span>
         ) : (
-          <input
-            type="button"
-            value="Load More"
-            onClick={() => {
-              store.album.loadItems();
-            }}
-          />
+          <>
+            {store.album.failedLoading ? (
+              <span className="failed-loader">Failed to load new images..</span>
+            ) : (
+              ''
+            )}
+            <input
+              type="button"
+              value="Load More"
+              onClick={() => {
+                store.album.loadItems();
+              }}
+            />
+          </>
         )}
       </div>
     </div>

@@ -73,9 +73,17 @@ input[type='button']:hover {
   background: #eee;
   color: #000;
 }
-
+span.failed-loader,
 span.loader {
   display: block;
   font-size: 25px;
+}
+
+span.loader {
   color: #fff;
+}
+
+span.failed-loader {
+  color: red;
+  padding: 20px;
 }
