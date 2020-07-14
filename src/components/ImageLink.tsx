@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ImageProps } from '../components/Image';
 import { ImageView } from './Image';
 
 interface ImageLinkProps {
@@ -8,7 +7,8 @@ interface ImageLinkProps {
   width: number;
   height: number;
   className: string;
-  image: ImageProps;
+  src: string;
+  author: string;
 }
 
 export const ImageLinkView = (props: ImageLinkProps) => {

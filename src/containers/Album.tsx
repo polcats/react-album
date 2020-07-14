@@ -50,7 +50,8 @@ export const Album = observer(({ store }: { store: AppModel }) => {
         <div style={style}>
           <ImageLinkView
             index={index}
-            image={image}
+            src={image.download_url}
+            author={image.author}
             width={columnWidth}
             height={adjustedHeight}
             className="preview"

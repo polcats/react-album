@@ -13,17 +13,16 @@ interface ImageViewProps {
   width?: number;
   height?: number;
   className: string;
-  image: ImageProps;
+  src: string;
+  author: string;
 }
 
 export const ImageView = (props: ImageViewProps) => {
-  const { className, width, height } = props;
-  const { download_url, author } = props.image;
-
+  const { className, width, height, src, author } = props;
   return (
     <img
       className={className}
-      src={download_url}
+      src={src}
       style={{
         width: width ? width : '',
         height: height ? height : '',
