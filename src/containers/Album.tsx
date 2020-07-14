@@ -71,7 +71,7 @@ export const Album = observer(({ store }: { store: AppModel }) => {
         cellPositioner={cellPositioner}
         cellRenderer={ImageRenderer}
         height={store.album.count * defaultHeight}
-        width={1650}
+        width={1625}
       />
       <div id="loader-wrap">
         {store.album.loading ? (

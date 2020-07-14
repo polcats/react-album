@@ -7,6 +7,10 @@ body {
   color: #fff;
 }
 
+div#root {
+  padding-top: 100px;
+}
+
 h1 {
   font-size: 15px;
 }
@@ -21,8 +25,8 @@ img.preview {
 
 img.preview:hover {
   transform: scale(1.5);
-  z-index: 9999;
-  position: absolute;
+  z-index: 1;
+  position: relative;
 }
 
 img.view {
@@ -37,6 +41,7 @@ div#loader-wrap {
 
 div.ReactVirtualized__Masonry,
 div.ReactVirtualized__Masonry__innerScrollContainer {
+  overflow: visible !important;
   margin: 0 auto;
 }
 

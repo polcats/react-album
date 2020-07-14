@@ -18,7 +18,7 @@ export const PhotoViewer = observer(({ store }: { store: AppModel }) => {
       ) : (
         <div>
           <Link to="/">Back</Link>
-          <h1>Picture by {image.author}</h1>
+          <h1>Picture by: {image.author}</h1>
           <ImageView
             src={image.download_url}
             author={image.author}
