@@ -42,20 +42,15 @@ export const resetAlbum = () => {
 
 export const Album = observer(({ store }: { store: AlbumModel }) => {
   const ImageRenderer = (props: MasonryCellProps) => {
+    const { index, parent, style } = props;
     const image: ImageModel = store.images[props.index];
     const adjustedHeight: number =
       columnWidth * (image.height / image.width) || defaultHeight;
     return (
-      <CellMeasurer
-        data={store}
-        cache={cache}
-        index={props.index}
-        key={props.index}
-        parent={props.parent}
-      >
-        <div style={props.style}>
+      <CellMeasurer cache={cache} index={index} key={index} parent={parent}>
+        <div style={style}>
           <ImageLinkView
-            index={props.index}
+            index={index}
             image={image}
             width={columnWidth}
             height={adjustedHeight}
