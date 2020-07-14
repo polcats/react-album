@@ -1,16 +1,12 @@
 import React from 'react';
+import { observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
-import { AlbumModel } from '../models/AlbumModel';
 import { ImageModel } from '../models/ImageModel';
 import { ImageView } from '../components/Image';
+import { AppModel } from '../models/AppModel';
 
-interface PhotoViewerProps {
-  index: number;
-  store: AlbumModel;
-}
-
-export const PhotoViewer = (props: PhotoViewerProps) => {
-  const image: ImageModel = props.store.images[props.index];
+export const PhotoViewer = observer(({ store }: { store: AppModel }) => {
+  const image: ImageModel = store.album.images[store.viewer.index];
 
   return (
     <div className="image-detail">
@@ -20,12 +16,12 @@ export const PhotoViewer = (props: PhotoViewerProps) => {
           You should go <Link to="/">Back</Link>
         </>
       ) : (
-        <>
+        <div>
           <Link to="/">Back</Link>
           <h1>Picture by {image.author}</h1>
           <ImageView image={image} className="view" />
-        </>
+        </div>
       )}
     </div>
   );
-};
+});
