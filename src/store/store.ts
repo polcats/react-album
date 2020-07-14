@@ -1,13 +1,18 @@
 import { registerRootStore } from 'mobx-keystone';
+import { AppModel } from '../models/AppModel';
 import { AlbumModel } from '../models/AlbumModel';
+import { PhotoViewerModel } from '../models/PhotoViewerModel';
 
-export const createAlbumStore = (): AlbumModel => {
-  const store = new AlbumModel({
-    images: [],
-    loading: false,
-    failedLoading: false,
-    currentPage: 1,
-    limit: 25,
+export const createAppStore = (): AppModel => {
+  const store = new AppModel({
+    album: new AlbumModel({
+      images: [],
+      loading: false,
+      failedLoading: false,
+      currentPage: 1,
+      limit: 25,
+    }),
+    viewer: new PhotoViewerModel({ index: undefined }),
   });
   registerRootStore(store);
   return store;

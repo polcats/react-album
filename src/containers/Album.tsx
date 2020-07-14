@@ -7,7 +7,7 @@ import {
   Masonry,
   MasonryCellProps,
 } from 'react-virtualized';
-import { AlbumModel } from '../models/AlbumModel';
+import { AppModel } from '../models/AppModel';
 import { ImageModel } from '../models/ImageModel';
 import { ImageLinkView } from '../components/ImageLink';
 
@@ -39,10 +39,10 @@ export const resetAlbum = () => {
   masonryRef.current?.clearCellPositions();
 };
 
-export const Album = observer(({ store }: { store: AlbumModel }) => {
+export const Album = observer(({ store }: { store: AppModel }) => {
   const ImageRenderer = (props: MasonryCellProps) => {
     const { index, parent, style } = props;
-    const image: ImageModel = store.images[props.index];
+    const image: ImageModel = store.album.images[props.index];
     const adjustedHeight: number =
       columnWidth * (image.height / image.width) || defaultHeight;
     return (
@@ -65,22 +65,22 @@ export const Album = observer(({ store }: { store: AlbumModel }) => {
       <Masonry
         ref={masonryRef}
         autoHeight={true}
-        cellCount={store.count}
+        cellCount={store.album.count}
         cellMeasurerCache={cache}
         cellPositioner={cellPositioner}
         cellRenderer={ImageRenderer}
-        height={store.count * defaultHeight}
+        height={store.album.count * defaultHeight}
         width={1650}
       />
       <div id="loader-wrap">
-        {store.loading ? (
+        {store.album.loading ? (
           <span className="loader">Loading images..</span>
         ) : (
           <input
             type="button"
             value="Load More"
             onClick={() => {
-              store.loadItems();
+              store.album.loadItems();
             }}
           />
         )}

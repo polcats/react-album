@@ -1,5 +1,4 @@
 import { model, Model, prop } from 'mobx-keystone';
-import { ImageModel } from './ImageModel';
 import { AlbumModel } from './AlbumModel';
 import { PhotoViewerModel } from './PhotoViewerModel';
 

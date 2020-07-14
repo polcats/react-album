@@ -4,15 +4,15 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import { Album, resetAlbum } from './containers/Album';
 import { PhotoViewer } from './containers/PhotoViewer';
-import { createAlbumStore } from './store/store';
+import { createAppStore } from './store/store';
 import './App.css';
 
 const App = () => {
-  const albumStore = createAlbumStore();
+  const appStore = createAppStore();
 
   useEffect(() => {
-    albumStore.loadItems();
-  }, [albumStore]);
+    appStore.album.loadItems();
+  }, [appStore]);
 
   return (
     <Router>
@@ -21,22 +21,18 @@ const App = () => {
           exact
           path="/"
           render={() => {
-            if (albumStore.count) {
+            if (appStore.album.count) {
               resetAlbum();
             }
-            return <Album store={albumStore} />;
+            return <Album store={appStore} />;
           }}
         />
         <Route
           exact
           path="/image/:index"
           render={(props) => {
-            return (
-              <PhotoViewer
-                store={albumStore}
-                index={props.match.params.index}
-              />
-            );
+            appStore.viewer.index = props.match.params.index;
+            return <PhotoViewer store={appStore} />;
           }}
         />
         <Route>
