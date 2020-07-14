@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ImageModel } from '../models/ImageModel';
 import { AlbumModel } from '../models/AlbumModel';
+import { ImageModel } from '../models/ImageModel';
 import { ImageView } from '../components/Image';
 
 interface PhotoViewerProps {
