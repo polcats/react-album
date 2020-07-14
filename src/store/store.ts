@@ -7,7 +7,7 @@ export const createAlbumStore = (): AlbumModel => {
     loading: false,
     failedLoading: false,
     currentPage: 1,
-    limit: 25,
+    limit: 15,
   });
   registerRootStore(store);
   return store;
