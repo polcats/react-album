@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, SetStateAction } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+  useHistory,
+} from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
-import { Album } from './containers/Album';
+import { Album, resetAlbum } from './containers/Album';
 import { PhotoViewer } from './containers/PhotoViewer';
 import { createAlbumStore } from './store/store';
 import './App.css';
@@ -14,9 +20,17 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
-          <Album store={albumStore} />
-        </Route>
+        <Route
+          exact
+          path="/"
+          render={() => {
+            if (albumStore.count) {
+              resetAlbum();
+            }
+
+            return <Album store={albumStore} />;
+          }}
+        />
         <Route
           exact
           path="/image/:index"
