@@ -66,11 +66,11 @@ export const Album = observer(({ store }: { store: AlbumModel }) => {
       <Masonry
         ref={masonryRef}
         autoHeight={true}
-        cellCount={store.images.length}
+        cellCount={store.count}
         cellMeasurerCache={cache}
         cellPositioner={cellPositioner}
         cellRenderer={ImageRenderer}
-        height={store.images.length * defaultHeight}
+        height={store.count * defaultHeight}
         width={1650}
       />
       <div id="loader-wrap">
