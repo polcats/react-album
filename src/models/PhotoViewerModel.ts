@@ -1,5 +1,5 @@
 import { model, Model, prop } from 'mobx-keystone';
-import { ImageModel } from '../models/ImageModel';
+import { ImageModel } from './ImageModel';
 
 @model('albumApp/PhotoViewerModel')
 export class PhotoViewerModel extends Model({
