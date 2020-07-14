@@ -1,11 +1,19 @@
 import React from 'react';
-import { ImageModel } from '../models/ImageModel';
+
+export interface ImageProps {
+  id: string;
+  author: string;
+  width: number;
+  height: number;
+  url: string;
+  download_url: string;
+}
 
 interface ImageViewProps {
   width?: number;
   height?: number;
   className: string;
-  image: ImageModel;
+  image: ImageProps;
 }
 
 export const ImageView = (props: ImageViewProps) => {

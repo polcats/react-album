@@ -1,10 +1,10 @@
 import { computed } from 'mobx';
 import { model, Model, modelAction, prop } from 'mobx-keystone';
-import { ImageModel } from './ImageModel';
+import { ImageProps } from '../components/Image';
 
 @model('albumApp/Album')
 export class AlbumModel extends Model({
-  images: prop<ImageModel[]>(() => [], { setterAction: true }),
+  images: prop<ImageProps[]>(() => [], { setterAction: true }),
   loading: prop(Boolean, { setterAction: true }),
   failedLoading: prop(Boolean, { setterAction: true }),
   currentPage: prop(Number, { setterAction: true }),
@@ -37,7 +37,7 @@ export class AlbumModel extends Model({
   };
 
   @modelAction
-  updateImages = (newImages: Array<ImageModel>) => {
+  updateImages = (newImages: Array<ImageProps>) => {
     newImages = newImages.filter((img) => this.images.indexOf(img) < 0);
     this.images = this.images.concat(newImages);
   };

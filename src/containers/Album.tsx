@@ -8,7 +8,7 @@ import {
   MasonryCellProps,
 } from 'react-virtualized';
 import { AppModel } from '../models/AppModel';
-import { ImageModel } from '../models/ImageModel';
+import { ImageProps } from '../components/Image';
 import { ImageLinkView } from '../components/ImageLink';
 
 const columnWidth: number = 400;
@@ -42,7 +42,7 @@ export const resetAlbum = () => {
 export const Album = observer(({ store }: { store: AppModel }) => {
   const ImageRenderer = (props: MasonryCellProps) => {
     const { index, parent, style } = props;
-    const image: ImageModel = store.album.images[props.index];
+    const image: ImageProps = store.album.images[props.index];
     const adjustedHeight: number =
       columnWidth * (image.height / image.width) || defaultHeight;
     return (

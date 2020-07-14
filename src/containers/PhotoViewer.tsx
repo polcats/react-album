@@ -1,12 +1,12 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { Link } from 'react-router-dom';
-import { ImageModel } from '../models/ImageModel';
+import { ImageProps } from '../components/Image';
 import { ImageView } from '../components/Image';
 import { AppModel } from '../models/AppModel';
 
 export const PhotoViewer = observer(({ store }: { store: AppModel }) => {
-  const image: ImageModel = store.album.images[store.viewer.index];
+  const image: ImageProps = store.album.images[store.viewer.index];
 
   return (
     <div className="image-detail">
