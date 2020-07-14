@@ -7,6 +7,10 @@ body {
   color: #fff;
 }
 
+h1 {
+  font-size: 15px;
+}
+
 img {
   transition: all 0.2s ease-in-out;
 }
@@ -18,8 +22,8 @@ img.preview:hover {
 }
 
 img.view {
-  width: 90vw;
-  height: auto;
+  width: auto;
+  height: 85vh;
 }
 
 div#loader-wrap {

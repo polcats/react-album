@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
@@ -8,8 +8,11 @@ import { createAlbumStore } from './store/store';
 import './App.css';
 
 const App = () => {
-  const [albumStore] = useState(() => createAlbumStore());
-  albumStore.loadItems();
+  const albumStore = createAlbumStore();
+
+  useEffect(() => {
+    albumStore.loadItems();
+  }, [albumStore]);
 
   return (
     <Router>
@@ -21,7 +24,6 @@ const App = () => {
             if (albumStore.count) {
               resetAlbum();
             }
-
             return <Album store={albumStore} />;
           }}
         />

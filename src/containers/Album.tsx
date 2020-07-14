@@ -12,8 +12,8 @@ import { ImageModel } from '../models/ImageModel';
 import { ImageLinkView } from '../components/ImageLink';
 import { AlbumModel } from '../models/AlbumModel';
 
-const columnWidth: number = 250;
-const defaultHeight: number = 300;
+const columnWidth: number = 400;
+const defaultHeight: number = 400;
 const defaultWidth: number = columnWidth;
 
 const cache = new CellMeasurerCache({
@@ -24,7 +24,7 @@ const cache = new CellMeasurerCache({
 
 const cellPositioner = createMasonryCellPositioner({
   cellMeasurerCache: cache,
-  columnCount: 5,
+  columnCount: 4,
   columnWidth,
   spacer: 10,
 });
@@ -76,7 +76,7 @@ export const Album = observer(({ store }: { store: AlbumModel }) => {
         cellPositioner={cellPositioner}
         cellRenderer={ImageRenderer}
         height={store.images.length * defaultHeight}
-        width={1250}
+        width={1600}
       />
       <div id="loader-wrap">
         {store.loading ? (
@@ -87,7 +87,6 @@ export const Album = observer(({ store }: { store: AlbumModel }) => {
             value="Load More"
             onClick={() => {
               store.loadItems();
-              resetAlbum();
             }}
           />
         )}

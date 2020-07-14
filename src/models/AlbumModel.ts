@@ -31,16 +31,14 @@ export class AlbumModel extends Model({
         },
         (error) => {
           this.failedLoading = true;
+          this.loading = false;
         },
       );
   };
 
   @modelAction
-  updateImages = (images: Array<ImageModel>) => {
-    for (let i: number = 0; i < images.length; ++i) {
-      if (this.images.indexOf(images[i]) === -1) {
-        this.images.push(images[i]);
-      }
-    }
+  updateImages = (newImages: Array<ImageModel>) => {
+    newImages = newImages.filter((img) => this.images.indexOf(img) < 0);
+    this.images = this.images.concat(newImages);
   };
 }
