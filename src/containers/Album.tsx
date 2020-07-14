@@ -7,10 +7,9 @@ import {
   Masonry,
   MasonryCellProps,
 } from 'react-virtualized';
-
+import { AlbumModel } from '../models/AlbumModel';
 import { ImageModel } from '../models/ImageModel';
 import { ImageLinkView } from '../components/ImageLink';
-import { AlbumModel } from '../models/AlbumModel';
 
 const columnWidth: number = 400;
 const defaultHeight: number = 400;
