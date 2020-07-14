@@ -64,6 +64,7 @@ export const Album = observer(({ store }: { store: AppModel }) => {
   return (
     <div id="mason-wrap">
       <Masonry
+        id="layout"
         ref={masonryRef}
         autoHeight={true}
         cellCount={store.album.count}
