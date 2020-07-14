@@ -1,12 +1,6 @@
-import React, { useState, useEffect, SetStateAction } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link,
-  useHistory,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import { Album, resetAlbum } from './containers/Album';
 import { PhotoViewer } from './containers/PhotoViewer';
