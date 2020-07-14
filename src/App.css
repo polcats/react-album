@@ -15,6 +15,10 @@ img {
   transition: all 0.2s ease-in-out;
 }
 
+img.preview {
+  border: 1px dashed #999;
+}
+
 img.preview:hover {
   transform: scale(1.5);
   z-index: 9999;
