@@ -16,7 +16,7 @@ export const PhotoViewer = (props: PhotoViewerProps) => {
     <div className="image-detail">
       {image === undefined ? (
         <>
-          <h1>This item does not exist.</h1>
+          <h1>This image does not exist.</h1>
           You should go <Link to="/">Back</Link>
         </>
       ) : (

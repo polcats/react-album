@@ -80,7 +80,7 @@ export const Album = observer(({ store }: { store: AlbumModel }) => {
       />
       <div id="loader-wrap">
         {store.loading ? (
-          <span className="loader">Loading items..</span>
+          <span className="loader">Loading images..</span>
         ) : (
           <input
             type="button"
