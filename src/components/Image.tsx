@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Props } from 'react';
 import { ImageModel } from '../models/ImageModel';
 
 interface ImageViewProps {
@@ -13,14 +13,10 @@ export const ImageView = (props: ImageViewProps) => {
     <img
       className={props.className}
       src={props.image.download_url}
-      style={
-        props.height && props.width
-          ? {
-              height: props.height,
-              width: props.width,
-            }
-          : {}
-      }
+      style={{
+        width: props.width ? props.width : '',
+        height: props.height ? props.height : '',
+      }}
       alt={`By ${props.image.author}`}
     />
   );
