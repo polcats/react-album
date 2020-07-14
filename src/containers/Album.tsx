@@ -33,7 +33,7 @@ const masonryRef: React.RefObject<Masonry> = React.createRef();
 export const resetAlbum = () => {
   cache.clearAll();
   cellPositioner.reset({
-    columnCount: 5,
+    columnCount: 4,
     columnWidth,
     spacer: 10,
   });
